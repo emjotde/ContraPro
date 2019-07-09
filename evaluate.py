@@ -4,8 +4,8 @@
 
 from __future__ import division, print_function, unicode_literals
 import sys
-reload(sys);
-sys.setdefaultencoding("utf8")
+#reload(sys);
+#sys.setdefaultencoding("utf8")
 import json
 import argparse
 from collections import defaultdict, OrderedDict
@@ -33,7 +33,7 @@ def count_errors(reference, scores, maximize, verbose=False):
         better = gt
     else:
         better = lt
-        
+    
     readlines =0    
 
     for count, sentence in enumerate(reference):
@@ -102,7 +102,7 @@ def print_statistics_by_category(results):
 
     for category in sorted(results['by_category']):
         correct, total, accuracy = get_scores(results['by_category'][category])
-	if total:
+        if total:
             print('{0} : {1} {2} {3}'.format(category, correct, total, accuracy))
 
 def print_statistics_by_intrasegmental(results):
@@ -110,15 +110,15 @@ def print_statistics_by_intrasegmental(results):
     for intrasegmental in sorted(results['by_intrasegmental']):
         correct, total, accuracy = get_scores(results['by_intrasegmental'][intrasegmental])
         if total:
-	    print('{0} : {1} {2} {3} '.format(intrasegmental, correct, total, accuracy))
-	    
+            print('{0} : {1} {2} {3} '.format(intrasegmental, correct, total, accuracy))
+
 def print_statistics_by_distance(results):
 
     for distance in sorted(results['by_ante_distance']):
         correct, total, accuracy = get_scores(results['by_ante_distance'][distance])
         if total:
-	    print('{0} : {1} {2} {3} '.format(distance, correct, total, accuracy))   
-	    
+            print('{0} : {1} {2} {3} '.format(distance, correct, total, accuracy))   
+
 def print_ante_distance_stats(results):
 
     for distance in sorted(results['ante_dist_stats']):
